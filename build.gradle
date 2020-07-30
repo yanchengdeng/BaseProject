@@ -19,6 +19,8 @@ allprojects {
     repositories {
         google()
         jcenter()
+        //只需要修改UserName和ProjectName就可以了
+        maven { url "https://raw.githubusercontent.com/dengyancheng/BaseProject/master" }
     }
 }
 
