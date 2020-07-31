@@ -43,8 +43,8 @@ dependencies {
     api 'androidx.appcompat:appcompat:1.1.0'
     api 'androidx.constraintlayout:constraintlayout:1.1.3'
     api 'com.google.android.material:material:1.1.0'
-
     api 'androidx.viewpager2:viewpager2:1.0.0'
+    api 'androidx.recyclerview:recyclerview:1.1.0'
 
 
 
@@ -56,46 +56,75 @@ dependencies {
 
 
     //==========================jetpack 工具库====================start=============================
-    //导航库
+    //TODO 导航库
     def navigation_version = "2.3.0"
     api "androidx.navigation:navigation-fragment:$navigation_version"
     api "androidx.navigation:navigation-ui:$navigation_version"
     api "androidx.navigation:navigation-fragment-ktx:$navigation_version"
     api "androidx.navigation:navigation-ui-ktx:$navigation_version"
 
-    //生命周期组件（包括viewModel）
+    //TODO 生命周期组件（包括viewModel）
     def lifecycle_version = "2.2.0"
     api "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     api "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
 
 
-    //live_data
+    //TODO live_data
 
 
 
-    //coroutine  协程
+    //TODO coroutine  协程
+    def coroutine_version = "1.3.7"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
 
 
-
-    //work_manager 工作后台
+    //TODO work_manager 工作后台
     def work_manager_version = "2.4.0"
     api "androidx.work:work-runtime:$work_manager_version"
-
-
 
     //==========================jetpack 工具库=========================end========================
 
 
 
-    //ARouter 路由 注意！arouter-compiler 这个依赖必须在build.gradle中声明，只在base_module中声明然后引用base_module中引用是无效的！
+    //TODO ARouter 路由 注意！arouter-compiler 这个依赖必须在build.gradle中声明，只在base_module中声明然后引用base_module中引用是无效的！
     api 'com.alibaba:arouter-api:1.5.0'
     kapt  'com.alibaba:arouter-compiler:1.2.2'
 
-    //其他需要的第三方组件
-    //常用工具类
+    //其他需要的第三方组件=======================================
+    //TODO 工具类
     api 'com.blankj:utilcodex:1.29.0'
     //权限
     api 'com.permissionx.guolindev:permissionx:1.2.2'
+    //TODO retrofit 网络请求
+    def retrofit_version = "2.9.0"
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+    api "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    api 'com.google.code.gson:gson:2.8.6'
+    api 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+    //TODO 下拉刷新
+    def smart_refresh_version = "2.0.1"
+    api  "com.scwang.smart:refresh-layout-kernel:$smart_refresh_version"      //核心必须依赖
+    api  "com.scwang.smart:refresh-header-classics:$smart_refresh_version"    //经典刷新头
+//    api  "com.scwang.smart:refresh-header-radar:$smart_refresh_version"        //雷达刷新头
+//    api  "com.scwang.smart:refresh-header-falsify:$smart_refresh_version"      //虚拟刷新头
+    api  "com.scwang.smart:refresh-header-material:$smart_refresh_version"     //谷歌刷新头
+//    api  "com.scwang.smart:refresh-header-two-level:$smart_refresh_version"    //二级刷新头
+//    api  "com.scwang.smart:refresh-footer-ball:$smart_refresh_version"         //球脉冲加载
+    api  "com.scwang.smart:refresh-footer-classics:$smart_refresh_version"    //经典加载
+
+    //TODO  需要横向滑动加载的可添加该控件
+//    api 'com.scwang.smartrefresh:SmartRefreshHorizontal:1.1.2-x'
+//    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.3'
+    //TODO banner
+    api 'com.youth.banner:banner:2.0.10'
+
+    //TODO  图片加载
+    def glide_version = "4.11.0"
+    api "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+
+
 
 
 
