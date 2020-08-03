@@ -61,7 +61,18 @@ allprojects {
 点击项目右侧Gradle，找到对应的项目，找到upload下的uploadArchives双击运行
 
 
+
+
+
+
 ## 组件化开发说明
+
+'''
+参考：
+[MVVMHabitComponent](https://github.com/goldze/MVVMHabitComponent)
+[MVVMHabitComponent](https://github.com/goldze/MVVMHabitComponent)
+
+'''
 ### 目的: 
 高内聚，低耦合，代码边界清晰，每一个组件都可以拆分出来独立运行。所有组件寄托于宿主App，加载分离的各个组件，各自编译自己的模块，有利于多人团队协作开发
 
