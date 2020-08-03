@@ -59,3 +59,16 @@ allprojects {
 
 4. 运行 发布
 点击项目右侧Gradle，找到对应的项目，找到upload下的uploadArchives双击运行
+
+
+## 组件化开发说明
+### 目的: 
+高内聚，低耦合，代码边界清晰，每一个组件都可以拆分出来独立运行。所有组件寄托于宿主App，加载分离的各个组件，各自编译自己的模块，有利于多人团队协作开发
+
+### 方法使用
+1. 定义一个变量控制组件运行方式
+在gradle.properties 中定义  isBuildModule ： true 时可以使每个组件独立运行, false 则可以将所有组件集成到宿主 App 中
+isBuildModule=false
+2. 因为组件中的build.gradle 大体相同，这里直接创建一个 公用的  
+
+ 
