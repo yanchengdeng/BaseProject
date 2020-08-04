@@ -70,7 +70,8 @@ allprojects {
 '''
 参考：
 [MVVMHabitComponent](https://github.com/goldze/MVVMHabitComponent)
-[MVVMHabitComponent](https://github.com/goldze/MVVMHabitComponent)
+[JetpackMVVM](https://github.com/VcStrong/JetpackMVVM)
+[architecture-components-samples](https://github.com/android/architecture-components-samples.git)
 
 '''
 ### 目的: 

@@ -5,7 +5,7 @@
     android:id="@+id/login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.login.LoginFragment">
+  >
 
     <Button
         android:id="@+id/button"
@@ -27,11 +27,11 @@
         android:layout_marginBottom="131dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="@+id/password"
         app:layout_constraintEnd_toEndOf="@+id/password"
         app:layout_constraintStart_toStartOf="@+id/password"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Name" />
 
     <EditText
         android:id="@+id/password"
@@ -41,7 +41,7 @@
         android:layout_marginTop="265dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="password"
+        tools:text="password"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

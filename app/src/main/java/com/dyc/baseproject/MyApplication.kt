@@ -2,6 +2,7 @@ package com.dyc.baseproject
 
 import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
+import com.dyc.common.constants.Constants
 
 /**
  *@Author : yancheng
@@ -14,8 +15,11 @@ class MyApplication  :Application(){
     override fun onCreate() {
         super.onCreate()
 
-        ARouter.openDebug()
-        ARouter.openLog()
+        Constants.setDebug(true)
+        if (Constants.isDebug()) {
+            ARouter.openDebug()
+            ARouter.openLog()
+        }
 
         ARouter.init(this)
     }

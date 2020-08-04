@@ -9,13 +9,15 @@ apply from: 'maven_build.gradle'
 
 
 
+
+
 android {
-    compileSdkVersion 30
-    buildToolsVersion "29.0.3"
+    compileSdkVersion  rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -34,6 +36,27 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    //开启DataBinding
+    dataBinding {
+        enabled true
+    }
+
+    //视图绑定
+    viewBinding {
+        enabled = true
+    }
+
+
 }
 
 dependencies {
@@ -45,9 +68,6 @@ dependencies {
     api 'com.google.android.material:material:1.1.0'
     api 'androidx.viewpager2:viewpager2:1.0.0'
     api 'androidx.recyclerview:recyclerview:1.1.0'
-
-
-
     api 'androidx.legacy:legacy-support-v4:1.0.0'
     api 'androidx.annotation:annotation:1.1.0'
     testApi 'junit:junit:4.13'
@@ -88,8 +108,8 @@ dependencies {
 
 
     // ARouter 路由 注意！arouter-compiler 这个依赖必须在build.gradle中声明，只在base_module中声明然后引用base_module中引用是无效的！
-    api 'com.alibaba:arouter-api:1.5.0'
-    kapt  'com.alibaba:arouter-compiler:1.2.2'
+    api "com.alibaba:arouter-api:$rootProject.ext.arouter_api"
+    kapt  "com.alibaba:arouter-compiler:$rootProject.ext.arouter_compiler"
 
     //其他需要的第三方组件=======================================
     // 工具类
