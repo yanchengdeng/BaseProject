@@ -22,7 +22,7 @@ class HomeViewModule constructor(private val   repository: HomeRepository) : Vie
     private val username :MutableLiveData<String> = MutableLiveData()
     private val password :MutableLiveData<String> = MutableLiveData()
 
-    var wanParts : MutableLiveData<ResultData> = MutableLiveData()
+   var wanParts : MutableLiveData<ResultData> = MutableLiveData()
 
     /**
      * 检查登录数据完整性

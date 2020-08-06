@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.dyc.baseproject.databinding.AppFragmentHomeBinding
 import com.dyc.baseproject.utils.InjectorUtils
 import com.dyc.common.ui.BaseFragment
+import com.dyc.common.view.afterTextChanged
 import java.lang.StringBuilder
 
 class HomeFragment : BaseFragment() {
@@ -54,14 +56,28 @@ class HomeFragment : BaseFragment() {
         })
 
 
+
+
+        val editText = EditText(this.context)
+
+        editText.afterTextChanged {
+
+        }
+
+        val sum :Int.(Int) ->Int = {other ->plus(other)}
+
+        1.sum(2)
+
+
         binding.appLoginButton.setOnClickListener {
 
             /**
              * 根据测试 api 请求跟随Activity/fragment周期
              */
-            for (i in 1..100) {
+//            for (i in 1..100) {
                 viewModule.doLogin()
-            }
+//            }
         }
     }
+
 }

@@ -38,7 +38,7 @@ android {
 
     //开启DataBinding
     dataBinding {
-        enabled true
+        enabled  = true
     }
 
     //视图绑定

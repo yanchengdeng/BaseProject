@@ -12,6 +12,8 @@ import android.widget.EditText
  **/
 
 /**
+ * lambda表达式   ：afterTextChanged  是一个函数类型的参数
+ *
  * 监听EditText  输入框变化
  */
     fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
