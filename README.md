@@ -72,6 +72,7 @@ allprojects {
 [MVVMHabitComponent](https://github.com/goldze/MVVMHabitComponent)
 [JetpackMVVM](https://github.com/VcStrong/JetpackMVVM)
 [architecture-components-samples](https://github.com/android/architecture-components-samples.git)
+[ARouter](https://github.com/alibaba/ARouter/blob/master/README_CN.md)
 
 '''
 ### 目的: 
@@ -81,6 +82,8 @@ allprojects {
 1. 定义一个变量控制组件运行方式
 在gradle.properties 中定义  isBuildModule ： true 时可以使每个组件独立运行, false 则可以将所有组件集成到宿主 App 中
 isBuildModule=false
-2. 因为组件中的build.gradle 大体相同，这里直接创建一个 公用的  
+当然 后续可以根据需求定义多个变量来控制组件的 运行方式   
+2. 因为组件中的build.gradle 大体相同，这里直接创建一个 公用的gradle ( module.common.gradle) 供其他组件 引用  
+
 
  

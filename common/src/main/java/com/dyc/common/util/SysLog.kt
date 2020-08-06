@@ -13,7 +13,7 @@ object SysLog {
 
     private const val TAG = "yancheng"
 
-    fun d(tag : String = TAG,msg :Any){
+    fun d(tag: String = TAG, msg :Any){
         if (Constants.isDebug()){
             LogUtils.dTag(tag,msg)
         }

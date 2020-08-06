@@ -15,12 +15,12 @@ class MyApplication  :Application(){
     override fun onCreate() {
         super.onCreate()
 
+        //设置全局开发模式   包括 日志 、
         Constants.setDebug(true)
         if (Constants.isDebug()) {
             ARouter.openDebug()
             ARouter.openLog()
         }
-
         ARouter.init(this)
     }
 }

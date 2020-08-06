@@ -1,31 +1,67 @@
 package com.dyc.baseproject.ui.home
 
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
-import com.dyc.baseproject.R
+import androidx.lifecycle.ViewModelProvider
+import com.dyc.baseproject.databinding.AppFragmentHomeBinding
+import com.dyc.baseproject.utils.InjectorUtils
+import com.dyc.common.ui.BaseFragment
+import java.lang.StringBuilder
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var binding: AppFragmentHomeBinding
+
+    //    private  val viewModule: HomeViewModule by viewModels()
+    private val viewModule: HomeViewModule by lazy {
+        ViewModelProvider(
+            this,
+            InjectorUtils.provideHomeModuleFactory()
+        ).get(HomeViewModule::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProviders.of(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
-        val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+        binding = AppFragmentHomeBinding.inflate(inflater)
+        return binding.root
+    }
+
+
+    override fun initView() {
+
+
+    }
+
+    override fun initData() {
+
+        viewModule.wanParts.observe(viewLifecycleOwner, Observer {
+
+            val listDatas = it.data
+
+            var datas  =StringBuilder()
+            listDatas.withIndex().forEach{ item->
+                datas.append("${item.index}  ${item.value}").append(System.lineSeparator())
+            }
+            binding.username.text = datas.toString()
         })
-        return root
+
+
+        binding.appLoginButton.setOnClickListener {
+
+            /**
+             * 根据测试 api 请求跟随Activity/fragment周期
+             */
+            for (i in 1..100) {
+                viewModule.doLogin()
+            }
+        }
     }
 }
