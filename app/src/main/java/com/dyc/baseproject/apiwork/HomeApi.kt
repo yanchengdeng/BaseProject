@@ -13,7 +13,7 @@ import retrofit2.http.GET
  *@Describe ：
  **/
 
-interface HomeService{
+interface HomeApi{
 
 
     @GET("hotkey/json")

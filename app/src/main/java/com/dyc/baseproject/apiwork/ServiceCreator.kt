@@ -36,7 +36,6 @@ import java.util.*
  * @author vipyinzhiwei
  * @since  2020/5/2
  */
-object ServiceCreator {
 
     private const val BASE_URL = "https://www.wanandroid.com/"
 
@@ -55,6 +54,9 @@ object ServiceCreator {
 
     fun <T> create(serviceClass: Class<T>): T = retrofit.create(serviceClass)
 
+
+object  HomeService : HomeApi by retrofit.create(HomeApi::class.java)
+
     class LoggingInterceptor : Interceptor {
 
         @Throws(IOException::class)
@@ -64,7 +66,6 @@ object ServiceCreator {
             SysLog.d(msg =  "发送请求: ${request.url()} \n ${request.headers()}")
 //            OkHttp请求回调中response.body().string()只能有效调用一次
             val response = chain.proceed(request)
-
             val t2 = System.nanoTime()
             SysLog.d(msg =  "接口时长 :  ${response.request().url()} in ${(t2 - t1) / 1e6} ms \n Headers数据：\n${response.headers()}")
             val responseBody = response.body()
@@ -76,11 +77,6 @@ object ServiceCreator {
               val result = (buffer.clone().readString(Charset.defaultCharset()))
               SysLog.d(tag = "返回数据",msg =  result)
           }
-
-
-
-
-
             return response
         }
     }
@@ -112,5 +108,7 @@ object ServiceCreator {
             return chain.proceed(request)
         }
     }
-}
+
+
+
 

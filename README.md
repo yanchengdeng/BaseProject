@@ -62,6 +62,10 @@ allprojects {
 
 
 
+## 待完善
+- [x] 数据data 解析
+- [ ]  数据库缓存
+
 
 
 
@@ -72,6 +76,8 @@ allprojects {
 [MVVMHabitComponent](https://github.com/goldze/MVVMHabitComponent)
 [JetpackMVVM](https://github.com/VcStrong/JetpackMVVM)
 [architecture-components-samples](https://github.com/android/architecture-components-samples.git)
+[sunflower](https://github.com/yanchengdeng/BaseProject.git)
+[Eyepetizer](https://github.com/VIPyinzhiwei/Eyepetizer.git)
 [ARouter](https://github.com/alibaba/ARouter/blob/master/README_CN.md)
 
 '''
@@ -86,4 +92,3 @@ isBuildModule=false
 2. 因为组件中的build.gradle 大体相同，这里直接创建一个 公用的gradle ( module.common.gradle) 供其他组件 引用  
 
 
- 

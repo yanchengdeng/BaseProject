@@ -11,8 +11,8 @@ import com.dyc.baseproject.ui.home.HomeViewModuleFactory
  **/
 object InjectorUtils {
 
-    fun provideHomeModuleFactory() : HomeViewModuleFactory{
-        val repository =  HomeRepository.getInstance()
-        return HomeViewModuleFactory(repository)
-    }
+//    fun provideHomeModuleFactory() : HomeViewModuleFactory{
+//        val repository =  HomeRepository.getInstance()
+//        return HomeViewModuleFactory(repository)
+//    }
 }

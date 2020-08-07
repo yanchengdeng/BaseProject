@@ -2,7 +2,10 @@ package com.dyc.baseproject
 
 import android.app.Application
 import com.alibaba.android.arouter.launcher.ARouter
+import com.dyc.baseproject.di.app_module
 import com.dyc.common.constants.Constants
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.startKoin
 
 /**
  *@Author : yancheng
@@ -11,6 +14,8 @@ import com.dyc.common.constants.Constants
  *@Describe ：
  **/
 class MyApplication  :Application(){
+
+
 
     override fun onCreate() {
         super.onCreate()
@@ -22,5 +27,13 @@ class MyApplication  :Application(){
             ARouter.openLog()
         }
         ARouter.init(this)
+
+
+        //koin 注解
+        startKoin {
+            androidContext(this@MyApplication)
+            modules(app_module)
+
+        }
     }
 }

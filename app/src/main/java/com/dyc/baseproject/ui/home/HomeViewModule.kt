@@ -48,14 +48,7 @@ class HomeViewModule constructor(private val   repository: HomeRepository) : Vie
         viewModelScope.launch {
             wanParts.postValue(repository.getWanParts())
         }
-
-
     }
-
-
-
-
-
 
 
 }

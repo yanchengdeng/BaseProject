@@ -17,9 +17,10 @@ class ArouterPath {
         *  登录模块
         */
 
-      const val MODULE_LOGIN  = "/module_login/"
+      private const val MODULE_LOGIN  = "/module_login/"
        //注册页
        const val PATH_REGISTER = "${MODULE_LOGIN}register"
+       const val PATH_LOGIN = "${MODULE_LOGIN}login"
 
 
        /**

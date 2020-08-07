@@ -1,7 +1,6 @@
 package com.dyc.baseproject.repository
 
-import com.dyc.baseproject.apiwork.HomeService
-import com.dyc.baseproject.apiwork.ServiceCreator
+import com.dyc.baseproject.apiwork.HomeApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -11,25 +10,23 @@ import kotlinx.coroutines.withContext
  *@Time : 15:46
  *@Describe ：
  **/
-class HomeRepository {
-
-    private val homeService = ServiceCreator.create(HomeService::class.java)
+class HomeRepository(private val homeApi: HomeApi) {
 
     suspend fun getWanParts() = withContext(Dispatchers.IO){
-        homeService.getWanParts()
+        homeApi.getWanParts()
     }
 
 
-    companion object{
-        // For Singleton instantiation
-        @Volatile private var instance: HomeRepository? = null
-
-        fun getInstance() : HomeRepository =
-            instance ?: synchronized(this){
-                instance ?: HomeRepository().also {
-                    instance = it
-                }
-            }
-    }
+//    companion object{
+//        // For Singleton instantiation
+//        @Volatile private var instance: HomeRepository? = null
+//
+//        fun getInstance() : HomeRepository =
+//            instance ?: synchronized(this){
+//                instance ?: HomeRepository(get()).also {
+//                    instance = it
+//                }
+//            }
+//    }
 
 }

@@ -48,13 +48,13 @@ android {
 
     //开启DataBinding
     dataBinding {
-        enabled true
+        enabled = true
     }
 
 //    //视图绑定
-//    viewBinding {
-//        enabled = true
-//    }
+    viewBinding {
+        enabled = true
+    }
 
 
 }
@@ -106,6 +106,12 @@ dependencies {
     api "androidx.work:work-runtime:$work_manager_version"
 
     //==========================jetpack 工具库=========================end========================
+
+    def koin_version = "2.0.1"
+    api "org.koin:koin-android-viewmodel:$koin_version"
+    api 'org.koin:koin-android:2.1.6'
+    api "org.koin:koin-android-scope:$koin_version"
+    api "org.koin:koin-android-ext:$koin_version"
 
 
 
