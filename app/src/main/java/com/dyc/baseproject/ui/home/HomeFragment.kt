@@ -6,23 +6,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.alibaba.android.arouter.launcher.ARouter
 import com.dyc.baseproject.databinding.AppFragmentHomeBinding
-import com.dyc.baseproject.utils.InjectorUtils
 import com.dyc.common.constants.ArouterPath
 import com.dyc.common.ui.BaseFragment
 import com.dyc.common.view.afterTextChanged
-import org.koin.android.scope.currentScope
 import java.lang.StringBuilder
+import  org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment() {
 
     private lateinit var binding: AppFragmentHomeBinding
 
-        private  val viewModule: HomeViewModule by viewModels()
+        private  val viewModule: HomeViewModule by viewModel()
 //    private val viewModule: HomeViewModule by lazy {
 //        ViewModelProvider(
 //            this,

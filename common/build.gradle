@@ -107,11 +107,14 @@ dependencies {
 
     //==========================jetpack 工具库=========================end========================
 
-    def koin_version = "2.0.1"
-    api "org.koin:koin-android-viewmodel:$koin_version"
-    api 'org.koin:koin-android:2.1.6'
-    api "org.koin:koin-android-scope:$koin_version"
-    api "org.koin:koin-android-ext:$koin_version"
+    def koin_version = "2.1.6"
+//    api "org.koin:koin-core:$koin_version"
+//    api "org.koin:koin-core-ext:$koin_version"
+    //引入androidx扩展
+    api "org.koin:koin-androidx-scope:$koin_version"
+    api "org.koin:koin-androidx-viewmodel:$koin_version"
+//    api "org.koin:koin-androidx-fragment:$koin_version"
+    api "org.koin:koin-androidx-ext:$koin_version"
 
 
 

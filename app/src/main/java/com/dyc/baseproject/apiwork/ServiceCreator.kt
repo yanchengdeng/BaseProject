@@ -52,7 +52,7 @@ import java.util.*
 
     private val retrofit = builder.build()
 
-    fun <T> create(serviceClass: Class<T>): T = retrofit.create(serviceClass)
+//    fun <T> create(serviceClass: Class<T>): T = retrofit.create(serviceClass)
 
 
 object  HomeService : HomeApi by retrofit.create(HomeApi::class.java)

@@ -4,7 +4,7 @@ import com.dyc.baseproject.apiwork.HomeApi
 import com.dyc.baseproject.apiwork.HomeService
 import com.dyc.baseproject.repository.HomeRepository
 import com.dyc.baseproject.ui.home.HomeViewModule
-import org.koin.android.viewmodel.dsl.viewModel
+import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 /**
@@ -32,4 +32,9 @@ val localModule = module {
 }
 
 
-val app_module = listOf(viewModelModule, reposModule, remoteModule, localModule)
+val app_module = listOf(
+    viewModelModule,
+    reposModule,
+    remoteModule,
+    localModule
+)
