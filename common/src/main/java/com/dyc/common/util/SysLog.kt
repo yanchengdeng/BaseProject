@@ -13,20 +13,20 @@ object SysLog {
 
     private const val TAG = "yancheng"
 
-    fun d(tag: String = TAG, msg :Any){
+    fun d(tag: String = TAG, msg :String){
         if (Constants.isDebug()){
             LogUtils.dTag(tag,msg)
         }
     }
 
 
-    fun i(tag : String = TAG,msg :Any){
+    fun i(tag : String = TAG,msg :String){
         if (Constants.isDebug()){
             LogUtils.iTag(tag,msg)
         }
     }
 
-    fun e(tag : String = TAG,msg :Any){
+    fun e(tag : String = TAG,msg :String){
         if (Constants.isDebug()){
             LogUtils.eTag(tag,msg)
         }

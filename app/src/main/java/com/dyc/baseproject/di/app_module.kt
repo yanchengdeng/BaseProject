@@ -1,10 +1,10 @@
 package com.dyc.baseproject.di
 
-import com.dyc.baseproject.apiwork.HomeApi
-import com.dyc.baseproject.apiwork.HomeService
-import com.dyc.baseproject.repository.HomeRepository
-import com.dyc.baseproject.ui.home.HomeViewModule
-import org.koin.androidx.viewmodel.dsl.viewModel
+import com.dyc.common.api.net.RetrofitClient
+import com.dyc.module_login.di.loginReposModule
+import com.dyc.module_login.di.loginViewModelModule
+import com.dyc.module_main.di.mainReposModule
+import com.dyc.module_main.di.mainViewModelModule
 import org.koin.dsl.module
 
 /**
@@ -14,27 +14,20 @@ import org.koin.dsl.module
  *@Describe ：
  **/
 
-val viewModelModule = module {
-    viewModel { HomeViewModule(get()) }
-}
 
-val reposModule = module {
-    factory { HomeRepository(get()) }
-}
 
-val remoteModule = module {
-    single<HomeApi> { HomeService }
+val otherModule = module {
+    single {
+        RetrofitClient.instance
+    }
 }
 
 
-val localModule = module {
-//    single { userDao }
-}
 
 
 val app_module = listOf(
-    viewModelModule,
-    reposModule,
-    remoteModule,
-    localModule
+    otherModule,
+    loginViewModelModule, loginReposModule,
+    mainViewModelModule,mainReposModule
+
 )

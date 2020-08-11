@@ -1,18 +1,24 @@
 package com.dyc.module_login.ui.login
 
 import android.text.TextUtils
-import android.widget.EditText
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kotlin.math.log
+import androidx.lifecycle.viewModelScope
+import com.blankj.utilcode.util.ToastUtils
+import com.dyc.common.api.model.NetResult
+import com.dyc.module_login.modle.User
+import com.dyc.module_login.repository.LoginRepository
+import kotlinx.coroutines.launch
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel(private val loginRepository :LoginRepository) : ViewModel() {
 
     private var username : String = ""
 
     private var password : String = ""
 
     var loginSate : MutableLiveData<LoginStated> = MutableLiveData(LoginStated.ALL_EMPTY)
+
+     val loginInfo :MutableLiveData<User> = MutableLiveData()
 
 
 
@@ -46,6 +52,17 @@ class LoginViewModel : ViewModel() {
 
         checkParams(this.username,this.password)
 
+    }
+
+    fun  doLogin(){
+        viewModelScope.launch {
+            val datas = loginRepository.login(username,password)
+            if (datas is NetResult.Success){
+                loginInfo.postValue(datas.data)
+            }else if (datas is NetResult.Error){
+                ToastUtils.showShort(datas.exception.msg)
+            }
+        }
     }
 
 

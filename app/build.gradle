@@ -79,6 +79,7 @@ dependencies {
         implementation project(path: ':common')
     }else{
         implementation project(path: ':module_login')
+        implementation project(path: ':module_main')
     }
     kapt  "com.alibaba:arouter-compiler:${rootProject.ext.arouter_compiler}"
 

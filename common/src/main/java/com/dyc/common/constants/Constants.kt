@@ -12,6 +12,13 @@ object Constants {
      * 调试模式
      */
     private var isDebug = false
+
+    /**
+     * api 成功 code  默认
+     */
+     var SUCCESS_CODE = 0
+
+
     fun setDebug(isDebug :Boolean){
         this.isDebug = isDebug
     }
@@ -19,5 +26,8 @@ object Constants {
     fun isDebug()= isDebug
 
 
+    fun setSuccessCode(code :Int){
+        this.SUCCESS_CODE = code
+    }
 
 }

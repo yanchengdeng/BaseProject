@@ -7,17 +7,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import androidx.navigation.Navigation
-import com.alibaba.android.arouter.facade.Postcard
-import com.alibaba.android.arouter.facade.callback.NavigationCallback
-import com.alibaba.android.arouter.launcher.ARouter
 import com.blankj.utilcode.util.ColorUtils
-import com.dyc.common.constants.ArouterPath
 import com.dyc.common.util.SysLog
 import com.dyc.common.view.afterTextChanged
 import com.dyc.module_login.R
 import com.dyc.module_login.databinding.LoginFragmentBinding
-import java.lang.Exception
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LoginFragment : Fragment(R.layout.login_fragment) {
 
@@ -25,7 +20,7 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
 
 
     private val binding get() = loginFragmentBinding!!
-    private lateinit var viewModel: LoginViewModel
+    private val   viewModel : LoginViewModel by viewModel()
 
 
     override fun onCreateView(
@@ -37,16 +32,10 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
         return binding.root
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        val binding = LoginFragmentBinding.bind(view)
-//        loginFragmentBinding = binding
-//
-//    }
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
 
 
         binding.username.afterTextChanged {
@@ -85,12 +74,20 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
             })
 
 
+        viewModel.loginInfo.observe(viewLifecycleOwner, Observer {
+            binding.loginData.text = "$it"
+        })
+
+
 
         binding.button.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putString("name",viewModel.getUserName())
-            bundle.putString("password",viewModel.getPassword())
-            Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_registerFragment,bundle)
+//            val bundle = Bundle()
+//            bundle.putString("name",viewModel.getUserName())
+//            bundle.putString("password",viewModel.getPassword())
+//            Navigation.findNavController(it).navigate(R.id.action_loginFragment_to_registerFragment,bundle)
+
+
+            viewModel.doLogin()
 
             //TODO  使用Arouter  做navigation 跳转失败，思考下 fragment 在navigate 下 直接使用Arouter 跳转
             //todo 或者类似 navigation 这样的控件 直接使用navigation导航传值就可以了
@@ -114,9 +111,6 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
                             SysLog.d(msg = postcard.toString())
                         }
                     })*/
-
-
-
         }
     }
 
@@ -126,3 +120,5 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
     }
 
 }
+
+
