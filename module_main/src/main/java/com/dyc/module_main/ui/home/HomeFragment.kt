@@ -8,10 +8,14 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.lifecycle.Observer
 import com.alibaba.android.arouter.launcher.ARouter
+import com.bumptech.glide.Glide
 import com.dyc.common.constants.ArouterPath
 import com.dyc.common.ui.BaseFragment
 import com.dyc.common.view.afterTextChanged
 import com.dyc.module_main.databinding.AppFragmentHomeBinding
+import com.google.android.material.shape.CornerFamily
+import com.google.android.material.shape.ShapeAppearanceModel
+import kotlinx.android.synthetic.main.app_fragment_home.*
 import java.lang.StringBuilder
 import  org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -32,7 +36,10 @@ class HomeFragment : BaseFragment() {
 
 
     override fun initView() {
-
+         val shapeCircle = ShapeAppearanceModel()
+        shapeCircle.toBuilder().setAllCorners(CornerFamily.ROUNDED,50f)
+        Glide.with(this).load("https://pics1.baidu.com/feed/fcfaaf51f3deb48f7639149554b44e2e2cf57858.jpeg?token=47409b39a3b31016c3684e602b6dc176").into(circle_image)
+        circle_image.shapeAppearanceModel = shapeCircle
 
     }
 

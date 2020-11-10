@@ -45,6 +45,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/scroll" />
 
+
+        <com.google.android.material.imageview.ShapeableImageView
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/guideline2"
+            android:id="@+id/circle_image"
+            android:layout_width="60dp"
+            android:layout_height="60dp"/>
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline2"
             android:layout_width="wrap_content"

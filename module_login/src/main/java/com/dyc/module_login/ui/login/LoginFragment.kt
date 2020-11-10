@@ -1,18 +1,18 @@
 package com.dyc.module_login.ui.login
 
-import androidx.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.blankj.utilcode.util.ColorUtils
-import com.dyc.common.util.SysLog
 import com.dyc.common.view.afterTextChanged
 import com.dyc.module_login.R
 import com.dyc.module_login.databinding.LoginFragmentBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class LoginFragment : Fragment(R.layout.login_fragment) {
 
@@ -46,6 +46,27 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
             viewModel.setUserInfo(password = it)
         }
 
+
+        binding.btnMsg.setOnClickListener {
+            val intent = Intent()
+            intent.setClassName(
+                "com.ddzx.miaopai",
+                "com.ddzx.miaopai.HistoryActivity"
+            )
+            startActivity(intent)
+
+
+        }
+
+        binding.btnStudy.setOnClickListener {
+            val intent = Intent()
+            intent.setClassName(
+                "com.ddzx.miaopai",
+                "com.ddzx.miaopai.MainActivity"
+            )
+            startActivity(intent)
+        }
+
         viewModel.loginSate.observe(viewLifecycleOwner,
             Observer {loginState ->
                 when(loginState){
@@ -57,7 +78,7 @@ class LoginFragment : Fragment(R.layout.login_fragment) {
                     LoginStated.USER_NAME_EMPTY -> {
                         binding.button.setBackgroundColor(ColorUtils.getColor(android.R.color.darker_gray))
                         binding.button.isEnabled = false
-                        binding.username.error = "请输入用户米"
+                        binding.username.error = "请输入用户名"
                     }
 
                     LoginStated.PASSWORD_EMPTY -> {

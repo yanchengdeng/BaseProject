@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.blankj.utilcode.util.AppUtils
 import com.dyc.module_main.R
 
 class NotificationsFragment : Fragment() {
@@ -18,6 +19,8 @@ class NotificationsFragment : Fragment() {
   ): View? {
     val root = inflater.inflate(R.layout.app_fragment_notifications, container, false)
     val textView: TextView = root.findViewById(R.id.text_notifications)
+
+    AppUtils.exitApp()
     return root
   }
 }

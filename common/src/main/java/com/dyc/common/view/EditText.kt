@@ -8,7 +8,7 @@ import android.widget.EditText
  *@Author : yancheng
  *@Date : 2020/8/4
  *@Time : 10:49
- *@Describe ：
+ *@Describe ：EditView 操作
  **/
 
 /**
